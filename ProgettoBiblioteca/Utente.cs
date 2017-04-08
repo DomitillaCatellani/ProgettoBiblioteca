@@ -13,8 +13,6 @@ namespace ProgettoBiblioteca
         public string codiceFiscale { get; set; }
         public DateTime nascita { get; set; }
 
-
-
         public Utente(string nome, string cognome, string codiceFiscale, DateTime nascita)
         {
             this.nome = nome;
@@ -22,41 +20,30 @@ namespace ProgettoBiblioteca
             this.codiceFiscale = codiceFiscale;
             this.nascita = nascita;
         }
-
-
-
+        
         public override string ToString()
         {
             return nome + " " + cognome + " " + nascita;
         }
-        
-
 
         public string describe()
         {
-            return nome + " " + cognome + " " + codiceFiscale;
+            return nome + " " + cognome + " " + codiceFiscale + Environment.NewLine + Environment.NewLine + "Libri: "+ Environment.NewLine + describeLibri() ;
         }
 
-
-
         public List<Libro> listaLibri = new List<Libro>();
-
-
-
+        
         public string describeLibri()
         {
+            if (listaLibri.Count == 0) { return ""; }
             string risultato = "";
-
             int lunghezza = listaLibri.Count;
-
-            for (int i = 0; i < lunghezza; i++)
+            risultato += listaLibri[0].describe();
+            for (int i = 1; i < lunghezza; i++)
             {
-                risultato += listaLibri[i].describe() + Environment.NewLine;
+                risultato += Environment.NewLine +Environment.NewLine + listaLibri[i].describe();
             }
-
             return risultato;
-
-
         }
     }
 }

@@ -29,8 +29,9 @@ namespace ProgettoBiblioteca
         {
             string titolo = titoliLibri [random.Next(6)];
             string autore = nomiUtenti[random.Next(6)] + " " + cognomiUtenti[random.Next(6)];
-            int ISBN = random.Next(999);
-            return new Libro(titolo, autore, new Genere(), ISBN);
+            int ISBN = random.Next(10000, 99999);
+            Genere genere = new Genere();
+            return new Libro(titolo, autore, genere, ISBN);
         }
     }
 }

@@ -30,31 +30,33 @@ namespace ProgettoBiblioteca
 
         private void buttonDescriviUtente_Click(object sender, EventArgs e)
         {
-            if (listBoxUtenti.SelectedIndex == -1) { commenti.Items.Add("seleziona un utente"); return; }
+            if (listBoxUtenti.SelectedIndex == -1) { MessageBox.Show("Seleziona un utente!", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return; }
             Utente u = listBoxUtenti.Items[listBoxUtenti.SelectedIndex] as Utente;
-            commenti.Items.Add(u.describe());
+            textBoxCommenti.Text = u.describe();
         }
 
         private void buttonDescriviLibro_Click(object sender, EventArgs e)
         {
-            if (listBoxUtenti.SelectedIndex == -1) { commenti.Items.Add("seleziona un libro"); return; }
+            if (listBoxLibri.SelectedIndex == -1) { MessageBox.Show ("Seleziona un libro!", "Attenzione!", MessageBoxButtons.OK,MessageBoxIcon.Exclamation ); return; }
             Libro l = listBoxLibri.Items[listBoxLibri.SelectedIndex] as Libro;
-            commenti.Items.Add(l.describe());
+            textBoxCommenti.Text = l.describe();
         }
 
         private void buttonPresta_Click(object sender, EventArgs e)
         {
-            if (listBoxUtenti.SelectedIndex == -1 || listBoxLibri.SelectedIndex == -1) { commenti.Items.Add("seleziona un libro e un utente"); return; }
+            if (listBoxUtenti.SelectedIndex == -1 || listBoxLibri.SelectedIndex == -1) { MessageBox.Show("Seleziona un libro e un utente!", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return; }
 
             Utente u = listBoxUtenti.Items[listBoxUtenti.SelectedIndex] as Utente;
             Libro l = listBoxLibri.Items[listBoxLibri.SelectedIndex] as Libro;
             if (l.presta(u))
             {
-                commenti.Items.Add("Il libro è stato prestato con successo.");
+                MessageBox.Show("Il libro è stato prestato con successo.", "Prestato", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            else { commenti.Items.Add("Non puoi prestare questo libro all'utente selezionato."); }
+            else { MessageBox.Show("Il libro è già in prestito oppure la transizione è fallita!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void listBoxLibri_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void label2_Click(object sender, EventArgs e) { }
     }
 }

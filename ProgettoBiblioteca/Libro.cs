@@ -26,7 +26,7 @@ namespace ProgettoBiblioteca
 
         public string describe()
         {
-            return "Titolo: " + titolo + ", autore: " + autore + ", genere: " + genere + ", ISBN: " + ISBN;
+            return "Titolo: " + titolo + Environment.NewLine + "Autore: " + autore + Environment.NewLine + "Genere: " + genere + Environment.NewLine + "ISBN: " + ISBN;
         }
         
         public bool presta (Utente u)
@@ -41,7 +41,5 @@ namespace ProgettoBiblioteca
         {
             return ISBN + " " + titolo;
         }
-
-
     }
 }

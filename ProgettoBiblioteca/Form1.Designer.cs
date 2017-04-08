@@ -35,7 +35,7 @@
             this.buttonDescriviLibro = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.commenti = new System.Windows.Forms.ListBox();
+            this.textBoxCommenti = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxUtenti
@@ -43,22 +43,22 @@
             this.listBoxUtenti.FormattingEnabled = true;
             this.listBoxUtenti.Location = new System.Drawing.Point(12, 25);
             this.listBoxUtenti.Name = "listBoxUtenti";
-            this.listBoxUtenti.Size = new System.Drawing.Size(120, 147);
+            this.listBoxUtenti.Size = new System.Drawing.Size(158, 147);
             this.listBoxUtenti.TabIndex = 0;
             this.listBoxUtenti.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBoxLibri
             // 
             this.listBoxLibri.FormattingEnabled = true;
-            this.listBoxLibri.Location = new System.Drawing.Point(152, 25);
+            this.listBoxLibri.Location = new System.Drawing.Point(340, 25);
             this.listBoxLibri.Name = "listBoxLibri";
-            this.listBoxLibri.Size = new System.Drawing.Size(120, 147);
+            this.listBoxLibri.Size = new System.Drawing.Size(158, 147);
             this.listBoxLibri.TabIndex = 1;
             this.listBoxLibri.SelectedIndexChanged += new System.EventHandler(this.listBoxLibri_SelectedIndexChanged);
             // 
             // buttonPresta
             // 
-            this.buttonPresta.Location = new System.Drawing.Point(104, 178);
+            this.buttonPresta.Location = new System.Drawing.Point(216, 178);
             this.buttonPresta.Name = "buttonPresta";
             this.buttonPresta.Size = new System.Drawing.Size(75, 23);
             this.buttonPresta.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // buttonDescriviUtente
             // 
-            this.buttonDescriviUtente.Location = new System.Drawing.Point(12, 178);
+            this.buttonDescriviUtente.Location = new System.Drawing.Point(53, 178);
             this.buttonDescriviUtente.Name = "buttonDescriviUtente";
             this.buttonDescriviUtente.Size = new System.Drawing.Size(75, 23);
             this.buttonDescriviUtente.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // buttonDescriviLibro
             // 
-            this.buttonDescriviLibro.Location = new System.Drawing.Point(197, 178);
+            this.buttonDescriviLibro.Location = new System.Drawing.Point(381, 178);
             this.buttonDescriviLibro.Name = "buttonDescriviLibro";
             this.buttonDescriviLibro.Size = new System.Drawing.Size(75, 23);
             this.buttonDescriviLibro.TabIndex = 4;
@@ -98,26 +98,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(149, 9);
+            this.label2.Location = new System.Drawing.Point(337, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Libri:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // commenti
+            // textBoxCommenti
             // 
-            this.commenti.FormattingEnabled = true;
-            this.commenti.Location = new System.Drawing.Point(12, 207);
-            this.commenti.Name = "commenti";
-            this.commenti.Size = new System.Drawing.Size(260, 56);
-            this.commenti.TabIndex = 7;
+            this.textBoxCommenti.Location = new System.Drawing.Point(176, 25);
+            this.textBoxCommenti.Multiline = true;
+            this.textBoxCommenti.Name = "textBoxCommenti";
+            this.textBoxCommenti.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxCommenti.Size = new System.Drawing.Size(158, 147);
+            this.textBoxCommenti.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 269);
-            this.Controls.Add(this.commenti);
+            this.ClientSize = new System.Drawing.Size(510, 218);
+            this.Controls.Add(this.textBoxCommenti);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDescriviLibro);
@@ -126,7 +128,7 @@
             this.Controls.Add(this.listBoxLibri);
             this.Controls.Add(this.listBoxUtenti);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Progetto Biblioteca";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,7 +144,7 @@
         private System.Windows.Forms.Button buttonDescriviLibro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox commenti;
+        private System.Windows.Forms.TextBox textBoxCommenti;
     }
 }
 
