@@ -26,20 +26,21 @@ namespace ProgettoBiblioteca
 
         public string describe()
         {
-            return "Titolo: " + titolo + Environment.NewLine + "Autore: " + autore + Environment.NewLine + "Genere: " + genere + Environment.NewLine + "ISBN: " + ISBN;
+            string answer;
+            if (this.inPrestito) { answer = "il libro è in prestito"; } else { answer = "il libro è disponibile al prestito"; }
+            return "Titolo: " + titolo + Environment.NewLine + "Autore: " + autore + Environment.NewLine + "Genere: " + genere + Environment.NewLine + "ISBN: " + ISBN + Environment.NewLine + answer;
         }
         
-        public bool presta (Utente u)
+        public void presta (Utente u)
         {
-            if (inPrestito) { return false; }
+            if (inPrestito) { throw new Exception("il libro è già in prestito."); }
             u.listaLibri.Add(this);
             _inPrestito = true;
-            return true;
         }
 
         public override string ToString()
         {
-            return ISBN + " " + titolo;
+            return titolo + " - " + autore;
         }
     }
 }

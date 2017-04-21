@@ -23,12 +23,16 @@ namespace ProgettoBiblioteca
         
         public override string ToString()
         {
-            return nome + " " + cognome + " " + nascita;
+            return nome + " " + cognome;
         }
 
         public string describe()
         {
-            return nome + " " + cognome + " " + codiceFiscale + Environment.NewLine + Environment.NewLine + "Libri: "+ Environment.NewLine + describeLibri() ;
+            string descrizione = "";
+
+            if (this.listaLibri.Count != 0) { descrizione = "Libri: " + Environment.NewLine + describeLibri(); }
+
+            return "Nome: " + nome + Environment.NewLine + "Cognome: "+ cognome + Environment.NewLine+ "Codice fiscale: " + codiceFiscale + Environment.NewLine + Environment.NewLine + descrizione ;
         }
 
         public List<Libro> listaLibri = new List<Libro>();

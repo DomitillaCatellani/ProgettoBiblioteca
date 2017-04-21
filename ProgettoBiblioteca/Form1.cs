@@ -48,11 +48,18 @@ namespace ProgettoBiblioteca
 
             Utente u = listBoxUtenti.Items[listBoxUtenti.SelectedIndex] as Utente;
             Libro l = listBoxLibri.Items[listBoxLibri.SelectedIndex] as Libro;
-            if (l.presta(u))
+
+            if (u.listaLibri.Count == 6) { MessageBox.Show("l'utente ha raggiunto il massimo numero di libri.", "Attenzione!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return; }
+
+            try
             {
-                MessageBox.Show("Il libro è stato prestato con successo.", "Prestato", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                l.presta(u);
+                textBoxCommenti.Text = "Il libro è stato prestato con successo.";
             }
-            else { MessageBox.Show("Il libro è già in prestito oppure la transizione è fallita!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch
+            {
+                textBoxCommenti.Text = "Il libro è già in prestito.";
+            }
         }
 
         private void listBoxLibri_SelectedIndexChanged(object sender, EventArgs e) { }

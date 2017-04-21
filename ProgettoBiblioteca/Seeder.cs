@@ -12,26 +12,19 @@ namespace ProgettoBiblioteca
         
         static List<string> nomiUtenti = new List<string>() { "Marco", "Lucia", "Stefano", "Sara", "Giacomo", "Rebecca"};
         static List<string> cognomiUtenti = new List<string>() { "Rossi", "Bianchi", "Manfredi", "Cipollari", "Tozzi", "Bartoli" };
-        static List<string> codiceFiscaleUtenti = new List<string>() { "kugrshrd", "ku6gryutfhgu","7tyghjhgfd","jtrhyfhdgertgh","ju7tysdhgiyci"};
-        
+        static List<string> codiceFiscaleUtenti = new List<string>() { "MSCMTT04L99F654O", "GBJTRD15M76M369G","DMTCTL23A00F371D","DNPNTR27M00F348T","SCFTRG30D03M162T"};
+        static List<Genere> generi = new List<Genere> { Genere.avventura, Genere.fantasy, Genere.giallo, Genere.romantico, Genere.horror, Genere.novella, Genere.romanzo, Genere.storico };
+
         static List<string> titoliLibri = new List<string>() { "Il Mondo Nuovo","Io e te", "la casa nel mondo", "Il barone rampante", "I Promessi Sposi", "Piccole donne", "Lo Hobbit", "Il signore degli anelli"};
 
         public static Utente creaUtente()
         {
-            string nome = nomiUtenti[random.Next(6)];
-            string cognome = cognomiUtenti[random.Next(6)];
-            string codiceFiscale = codiceFiscaleUtenti[random.Next(5)];
-            DateTime data = new DateTime(1970 + random.Next(47),1 + random.Next(11),1 + random.Next(27));
-            return new Utente(nome, cognome, codiceFiscale, data);
+            return new Utente(nomiUtenti[random.Next(6)], cognomiUtenti[random.Next(6)], codiceFiscaleUtenti[random.Next(5)], new DateTime(1970 + random.Next(47), 1 + random.Next(11), 1 + random.Next(27)));
         }
 
         public static Libro creaLibro()
         {
-            string titolo = titoliLibri [random.Next(6)];
-            string autore = nomiUtenti[random.Next(6)] + " " + cognomiUtenti[random.Next(6)];
-            int ISBN = random.Next(10000, 99999);
-            Genere genere = new Genere();
-            return new Libro(titolo, autore, genere, ISBN);
+            return new Libro(titoliLibri[random.Next(6)], nomiUtenti[random.Next(6)] + " " + cognomiUtenti[random.Next(6)], generi[random.Next(7)], random.Next(100000000, 999999999));
         }
     }
 }

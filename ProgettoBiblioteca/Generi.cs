@@ -11,6 +11,10 @@ namespace ProgettoBiblioteca
         giallo,
         romantico,
         avventura,
-        fantasy
+        fantasy, 
+        horror,
+        storico, 
+        romanzo,
+        novella
     }
 }
